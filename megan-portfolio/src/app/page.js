@@ -50,7 +50,6 @@ export default function Home() {
             <p>Tap on a card to see how I'm applying each skill.</p>
           </div>
           <SkillHand />
-          <p className="hint">tap a card to flip it</p>
         </div>
       </section>
 
