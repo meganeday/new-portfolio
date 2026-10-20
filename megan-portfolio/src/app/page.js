@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SkillHand from "./SkillHand";
 import HeroFan from "./Herofan";
 import SmoothScrollLink from "./SmoothScrollLink";
@@ -68,8 +69,16 @@ export default function Home() {
             <div className="row"><b>Hobbies:</b><span>Baking Sourdough, Reading, Crochet, Pickleball</span></div>
           </div>
           <div className="polaroid tape">
-            <div className="ph">[add your photo here]</div>
-            <div className="cap">hi, it’s me!</div>
+            <div className="ph">            
+              <Image
+                src="/megan.jpg"
+                alt={`Megan smiling for a photo at Bethesda Terrace in New York City`}
+                width={1000}
+                height={1400}
+                sizes="260px"
+                priority
+              /></div>
+            <div className="cap">Hi, I'm Megan!</div>
           </div>
         </div>
       </section>

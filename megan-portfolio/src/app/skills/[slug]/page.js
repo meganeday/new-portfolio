@@ -94,7 +94,7 @@ export default async function SkillPage({ params }) {
           <div className="btns">
             <Link className="btn" href={`/skills/${prev.slug}`}>Previous card: {prev.n}</Link>
             <Link className="btn alt" href={`/skills/${next.slug}`}>Next card: {next.n}</Link>
-            <Link className="btn" href="/#touch">Say hello</Link>
+            <Link className="btn" href="/#touch">Get in touch!</Link>
           </div>
         </div>
       </section>

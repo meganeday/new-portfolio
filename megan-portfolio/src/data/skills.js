@@ -17,7 +17,8 @@ const project = () => ({
   imageAlt: "", // describe the image if you add one
 });
 
-const writing = () => ({
+const writing = () => ([
+  {
   title: "The Read Out, a newsletter for Siebel Center for Design",
   role: "Primary contributor and editor",
   year: "2025-Present",
@@ -28,7 +29,35 @@ const writing = () => ({
   linkLabel: "View the full archive",
   image: "/projects/writing/Readout_Header.jpg", // for example "/projects/my-project.jpg" (file goes in public/projects)
   imageAlt: "The Read Out newsletter header", // describe the image if you add one
-});
+},
+{
+  title: "SCD Spotlight Series",
+  role: "Writer and editor",
+  year: "2026-Present",
+  summary: "A series of articles hosted on the Siebel Center for Design website that profiles SCD Affiliates and the work they’re doing across campus. I interview each Affiliate and write the feature, then collaborate with the Senior Associate Director of Research and Strategic Initiatives and the Director of Faculty and Academic Engagement to finalize each article.",
+  points: ["Interviews Affiliates and turns the conversations into feature articles with their own voices at the center", "Featured Affiliates include Matt Goodman, Elle Wroblewski, and Gloriana González", "Stories have covered topics like integrating human-centered design into capstone courses and an NSF-funded project bringing it into geometry teaching"],
+  link: "https://designcenter.illinois.edu/stories/GlorianaGonz%C3%A1lezAffiliateSpotlight",
+  linkLabel: "Read the latest installment",
+  image: "/projects/writing/SCD_Spotlight.png",
+  imageAlt: "SCD Spotlight Series: Gloriana González Affiliate Spotlight",
+}]);
+
+const graphicDesign = () => ([
+  {
+    title: "Human-Centered Schools Network Flyer",
+    role: "Designer",
+    year: "2026",
+    summary: "A one-page handout introducing the Human-Centered Schools Network, a community of K-12 educators and school leaders using human-centered design to tackle real challenges in their schools. It was made for people who aren’t ready to commit to the full HCSN Playbook, and it points them to the Siebel Center for Design website to learn more and get involved.",
+    points: [
+      "Took the project from an open-ended brief to a finished handout in under a week, designing the full layout in Canva",
+      "Incorporated existing illustrations so the handout matches the larger HCSN Playbook",
+      "Created a lighter first step for busy educators: a short intro, three clear member benefits, and a QR code",
+      "Refined the design through review by SCD’s Director"
+    ],
+    image: "/projects/design/HCSN_Flyer.png",
+    imageAlt: "Human-Centered Schools Network recruitment flyer with a hand-drawn border, three member benefits, and a QR code to join.",
+  }
+]);
 
 export const skills = [
   {
@@ -37,46 +66,47 @@ export const skills = [
     img: "writing",
     t: "Feature articles, web stories, and newsletters that explain complex work in plain language.",
     tagline: "Storytelling at work",
-    projects: [writing()],
+    projects: writing(),
   },
   {
     slug: "graphic-design",
     n: "Graphic design",
     img: "graphic_design",
-    t: "Layouts, social graphics, and print pieces that stay on brand.",
-    tagline: "Layouts and graphics that stay on brand and still have personality.",
-    projects: [project()],
+    t: "Flyers & social graphics that follow brand guidelines while effectively communicating.",
+    tagline: "Design with purpose",
+    projects: graphicDesign(),
   },
   {
     slug: "photography",
     n: "Photography",
     img: "photography",
     t: "Event, portrait, and documentary photography that supports the story.",
-    tagline: "Photos that show people and moments as they really are.",
-    projects: [project()],
+    tagline: "Coming soon.",
+    projects: [],
+
   },
   {
     slug: "video-production",
     n: "Video production",
     img: "video",
     t: "Short-form and event video, from shooting to final edit.",
-    tagline: "Short video, from the first shot to the final cut.",
-    projects: [project()],
+    tagline: "Coming soon.",
+    projects: [],
   },
   {
     slug: "social-media",
     n: "Social media",
     img: "social",
     t: "Captions, graphics, and short video across platforms, plus the campaigns that tie them together.",
-    tagline: "One voice across every platform, and campaigns that tie it together.",
-    projects: [project()],
+    tagline: "Coming soon.",
+    projects: [],
   },
   {
     slug: "web-development",
     n: "Web development",
     img: "web",
     t: "Writing, structuring, and building web pages, with a frontend developer’s eye for how they’re made.",
-    tagline: "Web content that reads well and is built with care.",
-    projects: [project()],
+    tagline: "Coming soon.",
+    projects: [],
   },
 ];

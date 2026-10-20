@@ -563,13 +563,18 @@ section {
 
 .polaroid .ph {
   aspect-ratio: 1;
-  background: var(--moss);
   border-radius: 50% 50% 8px 8px / 40% 40% 8px 8px;
+  overflow: hidden;
   display: grid;
   place-items: center;
   text-align: center;
   font: 700 1.4rem var(--hand);
-  padding: 1rem;
+}
+
+.polaroid .ph img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .polaroid .cap {
   text-align: center;
