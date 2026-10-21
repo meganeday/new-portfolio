@@ -228,34 +228,6 @@ h3 {
   color: var(--plum);
 }
 
-.corner {
-  position: absolute;
-  font-family: var(--serif);
-  line-height: 0.9;
-  text-align: center;
-  font-size: 1.5rem;
-}
-
-.corner small {
-  display: block;
-  font-size: 1.2rem;
-}
-
-.tl {
-  top: 10px;
-  left: 12px;
-}
-
-.br {
-  bottom: 10px;
-  right: 12px;
-  transform: rotate(180deg);
-}
-
-.rd {
-  color: var(--wine);
-}
-
 .fan {
   position: absolute;
   height: 350px;
@@ -281,35 +253,6 @@ h3 {
 
 .fan .pc:hover {
   transform: rotate(var(--r)) translateY(-18px);
-}
-
-.sticker {
-  position: absolute;
-  top: -6px;
-  right: 0;
-  z-index: 5;
-  width: 112px;
-  height: 112px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  font-size: 1.55rem;
-  line-height: 1;
-  padding: 0.5rem;
-  background: var(--moss);
-  color: var(--plum);
-  border: 5px solid var(--cream);
-  box-shadow: 0 0 0 1.5px rgba(59, 29, 46, 0.25), 0 6px 12px rgba(0, 0, 0, 0.35);
-  transform: rotate(12deg);
-  overflow: hidden;
-}
-
-.sticker::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0, rgba(255, 255, 255, 0) 45%, rgba(255, 255, 255, 0.2) 60%, transparent 70%);
 }
 
 .fan .pc:nth-child(1) {
@@ -338,18 +281,6 @@ h3 {
     transform: translateY(60px) rotate(0);
   }
 }
-.mid {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 5rem;
-}
-.jk {
-  font-family: var(--serif);
-  font-size: 7rem;
-}
- 
 /* hand */
 section {
   padding: 3rem 0;
@@ -385,7 +316,6 @@ section {
 }
 
 .slot {
-  perspective: 1000px;
   transform: rotate(var(--t, 0deg));
   transition: transform 0.25s;
 }
@@ -408,88 +338,25 @@ section {
 .slot:active {
   transform: rotate(0) scale(0.97);
 }
-.flip {
-  all: unset;
+.card-link {
   display: block;
   width: 100%;
   aspect-ratio: 5 / 7;
-  cursor: pointer;
   position: relative;
   -webkit-tap-highlight-color: transparent;
 }
-.flip:focus-visible {
+.card-link:focus-visible {
   outline: 3px solid var(--wine);
   outline-offset: 6px;
   border-radius: 16px;
 }
-.inner {
-  position: absolute;
-  inset: 0;
-  transition: transform 0.55s cubic-bezier(0.3, 0.7, 0.2, 1);
-  transform-style: preserve-3d;
-}
-.flip[aria-pressed="true"] .inner {
-  transform: rotateY(180deg);
-}
 .face {
   position: absolute;
   inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
-.pip {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 3.6rem;
-  padding-bottom: 2.6rem;
-}
-.name {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 21%;
-  text-align: center;
-  font: 700 1.9rem/1 var(--hand);
-  padding: 0 0.5rem;
-}
-
-.back {
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  font-size: 0.86rem;
-  line-height: 1.45;
-  overflow: auto;
-}
-
-.samples {
-  margin: auto 0 0;
-  padding: 0.55rem 0 0;
-  border-top: 2px dashed var(--plum);
-  list-style: none;
-  font-family: var(--hand);
-  font-size: 1.1rem;
-  line-height: 1.25;
-}
-.hint {
-  font-family: var(--hand);
-  font-size: 1.4rem;
-  margin: 1.5rem 0 0;
-}
- 
 /* about */
 .about {
   background: var(--rose);
-}
-
-.torn {
-  height: 26px;
-  margin-top: -1px;
-  background: var(--rose);
-  clip-path: polygon(0 100%, 0 55%, 4% 30%, 9% 62%, 14% 25%, 20% 58%, 26% 20%, 31% 52%, 38% 28%, 44% 60%, 50% 22%, 57% 55%, 63% 30%, 70% 62%, 76% 24%, 83% 56%, 89% 28%, 95% 58%, 100% 35%, 100% 100%);
 }
 
 .about .wrap {
@@ -590,27 +457,6 @@ section {
 }
 
 /* Project detail */
-.skill-link {
-  display: block;
-  margin-top: 1rem;
-  text-align: center;
-  font: 1.25rem/1 var(--sans);
-  color: var(--plum);
-  text-decoration: underline;
-  text-decoration-style: wavy;
-  text-underline-offset: 6px;
-}
-
-.skill-link:hover {
-  font-weight: 700;
-}
-
-.skill-link:focus-visible {
-  outline: 3px solid var(--tom);
-  outline-offset: 4px;
-  border-radius: 6px;
-}
-
 .crumb {
   display: inline-block;
   margin-bottom: 1rem;
@@ -811,15 +657,6 @@ footer {
   }
 }
 @media (max-width: 420px) {
-  .back {
-    font-size: 0.78rem;
-    padding: 0.75rem;
-  }
-
-  .name {
-    font-size: 1.5rem;
-  }
-
   .row {
     grid-template-columns: 6rem 1fr;
   }
@@ -840,7 +677,6 @@ footer {
     transform: rotate(4deg);
     transition: none;
   }
-  .inner,
   .slot {
     transition: none;
   }
@@ -992,16 +828,3 @@ footer {
   }
 }
 
-.gallery-hero .wrap {
-  display: block;
-  padding-top: 2.5rem;
-  padding-bottom: 2rem;
-}
-
-.gallery-hero h1 {
-  font-size: clamp(2.6rem, 7vw, 4.5rem);
-}
-
-.gallery-hero .tag {
-  margin-bottom: 0;
-}
