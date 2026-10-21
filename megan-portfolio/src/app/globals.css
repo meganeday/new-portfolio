@@ -9,7 +9,7 @@
   --peri: #b9c9ee;
   --butter: #ffe597;
   --plum: #3b1d2e;
-  --moss: #9a922b;
+  --moss: #BBBE0D;
   --slate: #b9c9ee;
   --serif: var(--font-serif), "Instrument Serif", serif;
   --hand: var(--font-hand), "Homemade Apple", "Bradley Hand", cursive;
@@ -76,13 +76,13 @@ h3 {
   padding: 0 1.25rem;
 }
 
-.wrap h1 {
+/* .wrap h1 {
   color: var(--butter);
-}
+} */
 
 .script {
   font-family: var(--hand);
-}
+};
  
 /* ticker */
 .tick {
@@ -161,7 +161,7 @@ h3 {
 .btn {
   display: inline-block;
   background: var(--moss);
-  color: var(--white);
+  color: var(--plum);
   border: 2px solid var(--plum);
   border-radius: 999px;
   padding: 0.6rem 1.2rem;
@@ -625,26 +625,50 @@ section {
   display: inline-block;
   margin-bottom: 1rem;
   font: 700 1.4rem/1 var(--hand);
-  color: inherit;
+  color: var(--moss);
   margin-left: -4rem;
 
   &:hover {
-    color: var(--plum);
+    color: var(--butter);
   }
 }
 
 .skill-hero {
   position: relative;
+  background-color: var(--plum);
+  
+  + .scallop::before {
+  background-color: var(--plum);
+  }
+
+  .tag {
+    color: var(--peri);
+  }
+
+  h1 {
+    color: var(--rose);
+  }
+
+  p {
+    color: var(--white);
+  }
 }
 
 .skill-card {
   position: absolute;
-  width: min(200px, 70%);
+  width: min(250px, 70%);
   aspect-ratio: 5 / 7;
   margin: 0 auto;
   transform: rotate(4deg);
-  bottom: 80px;
+  transition: transform 0.25s;
+  animation: deal 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  bottom: -80px;
   right: 30px;
+  z-index: 2;
+}
+
+.skill-card:hover {
+  transform: rotate(4deg) translateY(-18px);
 }
 
 .proj-list {
@@ -758,11 +782,12 @@ section {
 
 .ticket .btn {
   background: var(--wine);
+  color: var(--butter);
 }
 
 footer {
   background: var(--moss);
-  color: var(--cream);
+  color: var(--plum);
   text-align: center;
   padding: 1.5rem 1rem 2rem;
   font-family: var(--hand);
@@ -806,6 +831,13 @@ footer {
     opacity: 1;
     transform: rotate(var(--r));
   }
+  .skill-card,
+  .skill-card:hover {
+    animation: none;
+    opacity: 1;
+    transform: rotate(4deg);
+    transition: none;
+  }
   .inner,
   .slot {
     transition: none;
@@ -841,4 +873,133 @@ footer {
     grid-template-columns: repeat(3, 1fr);
     max-width: 860px;
   }
+}
+
+/* Gallery */
+.gallery {
+  columns: 3 280px;
+  column-gap: 1.75rem;
+}
+
+.shot {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  position: relative;
+  cursor: zoom-in;
+  break-inside: avoid;
+  margin: 0 0 2rem;
+  background: #fff;
+  padding: 0.7rem 0.7rem 1rem;
+  border: 2.5px solid var(--plum);
+  box-shadow: 5px 5px 0 var(--plum);
+  transform: rotate(var(--t, 0deg));
+  transition: transform 0.2s;
+}
+
+.shot:nth-child(3n + 1) {
+  --t: -1.5deg;
+}
+
+.shot:nth-child(3n + 2) {
+  --t: 1deg;
+}
+
+.shot:nth-child(3n + 3) {
+  --t: -0.5deg;
+}
+
+.shot:hover {
+  transform: rotate(0) translateY(-4px);
+}
+
+.shot:focus-visible {
+  outline: 3px solid var(--tom);
+  outline-offset: 4px;
+}
+
+.shot img {
+  display: block;
+}
+
+.shot .cap {
+  display: block;
+  margin-top: 0.6rem;
+  text-align: center;
+  font: 1rem/1.1 var(--sans);
+  color: var(--plum);
+}
+
+.ph-photo {
+  aspect-ratio: 4 / 3;
+  background: var(--lime);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font: 700 1.3rem var(--hand);
+  padding: 1rem;
+}
+
+.lightbox {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  overflow: visible;
+}
+
+.lightbox::backdrop {
+  background: rgba(43, 29, 46, 0.88);
+}
+
+.lb-inner {
+  display: grid;
+  gap: 0.9rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.lb-inner img {
+  display: block;
+  border: 3px solid var(--cream);
+  background: #fff;
+  border-radius: 6px;
+}
+
+.lb-cap {
+  margin: 0;
+  color: var(--cream);
+  font: 700 1.2rem/1.2 var(--sans);
+  text-align: center;
+  max-width: 36rem;
+}
+
+.lb-btns {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shot {
+    transition: none;
+  }
+}
+
+.gallery-hero .wrap {
+  display: block;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.gallery-hero h1 {
+  font-size: clamp(2.6rem, 7vw, 4.5rem);
+}
+
+.gallery-hero .tag {
+  margin-bottom: 0;
 }
