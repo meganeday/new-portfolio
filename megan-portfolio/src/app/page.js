@@ -89,7 +89,7 @@ export default function Home() {
         <div className="wrap">
           <div className="ticket">
             <h2>Let’s keep in touch</h2>
-            <p>I’m open to communications and content roles with an emphasis on storytelling, where range is an asset.</p>
+            {/* <p>I’m open to communications and content roles with an emphasis on storytelling, where range is an asset.</p> */}
             <div className="btns" style={{ justifyContent: "center" }}>
               <a className="btn" href="mailto:meghubbert@gmail.com">meghubbert@gmail.com</a>
               <a className="btn" href="https://www.linkedin.com/in/meganhubbert">LinkedIn</a>
