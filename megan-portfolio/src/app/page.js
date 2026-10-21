@@ -48,7 +48,7 @@ export default function Home() {
           <div className="intro">
             <h2 id="hand-h" tabIndex={-1}>Cards I keep in my back pocket</h2>
             <span className="script">see how I've applied each skill in my work</span>
-            <p>Tap on a card to check out what tools I'm using to apply each skill!</p>
+            <p>Tap on a card to check out the tools I'm using to apply each skill!</p>
           </div>
           <SkillHand />
         </div>
