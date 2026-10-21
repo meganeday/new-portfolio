@@ -764,6 +764,7 @@ section {
 
 .ticket h2 {
   font: italic 2.6rem/1 var(--serif);
+  margin-bottom: 1rem;
 }
 
 .ticket p {
