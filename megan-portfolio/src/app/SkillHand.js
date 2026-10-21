@@ -7,6 +7,7 @@ import { skills } from "../data/skills";
  
 export default function SkillHand() {
   const [flipped, setFlipped] = useState({});
+  const [backImageFailed, setBackImageFailed] = useState({});
   const toggle = (name) => setFlipped((f) => ({ ...f, [name]: !f[name] }));
  
   return (
@@ -31,8 +32,18 @@ export default function SkillHand() {
                 />
               </span>
               <span className="face pc back">
-                <h3>{k.n}</h3>
-                <p>{k.t}</p>
+                <Image
+                  src={backImageFailed[k.img] ? `/cards/${k.img}.png` : `/cards/${k.img}_back.png`}
+                  alt=""
+                  width={1000}
+                  height={1400}
+                  sizes="(max-width: 900px) 50vw, 280px"
+                  onError={
+                    backImageFailed[k.img]
+                      ? undefined
+                      : () => setBackImageFailed((failed) => ({ ...failed, [k.img]: true }))
+                  }
+                />
               </span>
             </span>
           </button>
