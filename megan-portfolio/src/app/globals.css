@@ -697,6 +697,17 @@ section {
   height: auto;
 }
 
+.proj-media .zoom {
+  all: unset;
+  display: block;
+  cursor: zoom-in;
+}
+
+.proj-media .zoom:focus-visible {
+  outline: 3px solid var(--tom);
+  outline-offset: 4px;
+}
+
 .proj-media .ph {
   aspect-ratio: 4 / 3;
   background: var(--lime);

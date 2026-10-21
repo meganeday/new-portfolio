@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { skills } from "../../../data/skills";
 import Gallery from "../../Gallery";
+import ZoomImage from "../../ZoomImage";
  
 export const instant = false;
  
@@ -71,7 +72,9 @@ export default async function SkillPage({ params }) {
               {skill.projects.map((p, idx) => (
                 <article className="proj" key={idx}>
                   <div className="proj-media tape">
-                    {p.image ? (
+                    {p.image && skill.zoomImages ? (
+                      <ZoomImage src={p.image} alt={p.imageAlt} sizes="(max-width: 900px) 90vw, 440px" />
+                    ) : p.image ? (
                       <Image src={p.image} alt={p.imageAlt} width={1200} height={900} sizes="(max-width: 900px) 90vw, 440px" />
                     ) : (
                       <div className="ph">[add a project image]</div>
