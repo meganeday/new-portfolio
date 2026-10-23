@@ -1,5 +1,6 @@
 import { Albert_Sans, Instrument_Serif, Homemade_Apple } from "next/font/google";
 import "./globals.css";
+import Nav from "./Nav";
  
 const sans = Albert_Sans({ subsets: ["latin"], variable: "--font-sans" });
 const serif = Instrument_Serif({
@@ -28,7 +29,10 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable} ${hand.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Nav />
+        {children}
+      </body>
     </html>
   );
 }

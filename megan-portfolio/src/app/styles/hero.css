@@ -95,6 +95,27 @@
     grid-template-columns: 1fr;
     padding-top: 2.5rem;
   }
+
+  .hero .btns {
+    margin-bottom: 2rem;
+  }
+
+  /* Drop the fan into the flow below the copy instead of overlapping it */
+  .fan {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    height: 240px;
+    max-width: 340px;
+    margin: 1rem auto 0;
+  }
+
+  .fan .pc,
+  .fan .pc.art {
+    width: 130px;
+    height: 182px;
+    margin-left: -65px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

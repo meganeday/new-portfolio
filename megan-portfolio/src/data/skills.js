@@ -17,7 +17,7 @@ export const skills = [
   },
   {
     slug: "graphic-design",
-    n: "Graphic design",
+    n: "Graphic Design",
     img: "graphic_design",
     t: `While my knowledge of design software is admittedly limited, I love stretching the limits of the tools I use each day. One of my favorite responses to work I've created is a surprised, "You made this in Canva?!"`,
     tagline: "Designed with purpose",
@@ -37,7 +37,7 @@ export const skills = [
   },
   {
     slug: "video-production",
-    n: "Video production",
+    n: "Video Production",
     img: "video",
     t: "Short-form and event video, from shooting to final edit.",
     tagline: "Coming soon.",
@@ -46,7 +46,7 @@ export const skills = [
   },
   {
     slug: "social-media",
-    n: "Social media",
+    n: "Social Media",
     img: "social",
     t: "Captions, graphics, and short video across platforms, plus the campaigns that tie them together.",
     tagline: "Coming soon.",
@@ -55,7 +55,7 @@ export const skills = [
   },
   {
     slug: "web-development",
-    n: "Web development",
+    n: "Web Development",
     img: "web",
     layout: "case-study",
     t: "Before working in marketing, I spent four years as a frontend web developer. I love working with code, but I yearned for more variety in my day to day work. While I work primarily in Digital Communications now, I still dabble in code, and I love playing around with these skills whenever I can!",

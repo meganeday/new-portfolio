@@ -57,7 +57,7 @@ export default function Home() {
       <div className="awning t" aria-hidden="true"></div>
 
   
-      <section className="about">
+      <section className="about" id="about" tabIndex={-1}>
         <div className="wrap">
           <div className="id tape">
             <h2><span className="chip">the basics</span></h2>

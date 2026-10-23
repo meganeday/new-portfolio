@@ -140,7 +140,7 @@
   .tools {
     top: 0;
     right: calc(100%);
-    width: min(180px, calc(100vw - 150px - 4.5rem));
+    width: min(160px);
     font-size: 0.95rem;
     transform: translate(1.5rem, 0) rotate(-4deg);
   }
