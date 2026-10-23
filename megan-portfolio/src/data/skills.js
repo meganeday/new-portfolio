@@ -1,5 +1,6 @@
 import { graphicDesign } from "./projects/graphic-design";
 import { photos } from "./projects/photography";
+import { videoProduction } from "./projects/video-production";
 import { webDevelopment } from "./projects/web-development";
 import { writing } from "./projects/writing";
 
@@ -40,9 +41,9 @@ export const skills = [
     n: "video production",
     img: "video",
     t: "Short-form and event video, from shooting to final edit.",
-    tagline: "Coming soon.",
+    tagline: "Stories in motion",
     tools: ["Descript", "Capcut"],
-    projects: [],
+    projects: videoProduction,
   },
   {
     slug: "social-media",

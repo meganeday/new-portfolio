@@ -77,7 +77,17 @@ export default async function SkillPage({ params }) {
               {skill.projects.map((p, idx) => (
                 <article className="proj" key={idx}>
                   <div className="proj-media tape">
-                    {p.image && skill.zoomImages ? (
+                    {p.video ? (
+                      <div className="proj-video">
+                        <iframe
+                          src={p.video}
+                          title={p.title}
+                          allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          allowFullScreen
+                        />
+                      </div>
+                    ) : p.image && skill.zoomImages ? (
                       <ZoomImage src={p.image} alt={p.imageAlt} sizes="(max-width: 900px) 90vw, 440px" />
                     ) : p.image ? (
                       <Image src={p.image} alt={p.imageAlt} width={1200} height={900} sizes="(max-width: 900px) 90vw, 440px" />
@@ -91,9 +101,11 @@ export default async function SkillPage({ params }) {
                     </p>
                     <h3>{p.title}</h3>
                     <p>{p.summary}</p>
-                    <ul className="proj-points">
-                      {p.points.map((pt) => <li key={pt}>{pt}</li>)}
-                    </ul>
+                    {p.points?.length ? (
+                      <ul className="proj-points">
+                        {p.points.map((pt) => <li key={pt}>{pt}</li>)}
+                      </ul>
+                    ) : null}
                     {p.link ? (
                       <a className="btn" href={p.link} target="_blank" rel="noopener noreferrer">
                         {p.linkLabel}
