@@ -93,7 +93,7 @@
 /* tools list that slides out beside the flipped card */
 .tools {
   position: absolute;
-  top: 50%;
+  top: 40%;
   right: calc(95%);
   width: 180px;
   color: var(--white);
