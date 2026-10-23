@@ -1,7 +1,11 @@
 /* Case study layout (web development page): text, KPIs, tools, and a media grid per project */
 
+/* minmax(0, ...) on these grids keeps wide content, like the scrolling
+   thumbnail strip or a large screenshot, from stretching the drawer past
+   the screen */
 .case-list {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.75rem;
 }
 
@@ -99,7 +103,7 @@
 
 .case-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
   gap: 2.5rem;
   align-items: start;
 }
@@ -186,7 +190,7 @@
 .mg-stage {
   position: relative;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 1rem;
 }
@@ -218,6 +222,7 @@
 .mg-frame {
   position: relative;
   display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
   place-items: center;
   width: 100%;
   height: 100%;
@@ -408,7 +413,7 @@
 
 @media (max-width: 900px) {
   .case-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -421,7 +426,7 @@
 
   /* arrows sit on top of the featured file's edges */
   .mg-stage {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .mg-feature {
