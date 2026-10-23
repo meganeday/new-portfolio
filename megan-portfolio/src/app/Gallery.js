@@ -61,15 +61,15 @@ export default function Gallery({ photos }) {
         ref={dialogRef}
         className="lightbox"
         aria-label="Photo viewer"
-        onClose={() => setActive(null)}
         onKeyDown={onKeyDown}
         onClick={(e) => {
           if (e.target === e.currentTarget) close();
         }}
       >
+        <button type="button" className="lb-close" onClick={close} aria-label="Close"></button>
+        {/* the last photo stays rendered after closing so it can animate out */}
         {current ? (
           <div className="lb-inner">
-            <button type="button" className="lb-close" onClick={close} aria-label="Close"></button>
             <div className="lb-stage has-arrows">
               <button type="button" className="btn lb-arrow prev" onClick={() => step(-1)} aria-label="Previous">
                 <Image src="/icons/left.png" alt="" width={60} height={60} />

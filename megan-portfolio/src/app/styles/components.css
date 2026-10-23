@@ -17,6 +17,7 @@
   text-decoration: none;
   box-shadow: 3px 3px 0 var(--plum), inset 0 2px 0 rgba(255, 255, 255, 0.55);
   transition: transform 0.12s, box-shadow 0.12s;
+  text-transform: capitalize;
 }
 
 .btn:hover {

@@ -7,6 +7,7 @@
   color: var(--moss);
   width: 100%;
   text-align: right;
+  text-transform: lowercase;
 
   &:hover {
     color: var(--butter);
@@ -16,6 +17,7 @@
 .skill-hero {
   position: relative;
   background-color: var(--plum);
+  text-transform: capitalize;
 
   + .scallop::before {
   background-color: var(--plum);
@@ -47,7 +49,6 @@
   z-index: 2;
 }
 
-/* only lift on devices with a real mouse; on phones a tap left it stuck up */
 @media (hover: hover) {
   .skill-card:hover {
     transform: rotate(4deg) translateY(-18px);
@@ -102,6 +103,10 @@
   font-size: 1rem;
   transform: translate(2.5rem, -50%) rotate(-7deg);
   transition: opacity 0.3s, transform 0.45s cubic-bezier(0.3, 0.7, 0.2, 1), visibility 0.3s;
+}
+
+.tools.photography {
+  top: 60%;
 }
 
 .skill-card.flipped .tools {

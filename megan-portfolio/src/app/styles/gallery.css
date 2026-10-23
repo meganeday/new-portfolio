@@ -73,10 +73,30 @@
   max-height: none;
   margin: auto;
   overflow: visible;
+  opacity: 0;
+  /* allow-discrete keeps the dialog on screen until the closing fade ends */
+  transition: opacity 0.25s, overlay 0.25s allow-discrete, display 0.25s allow-discrete;
+}
+
+.lightbox[open] {
+  opacity: 1;
 }
 
 .lightbox::backdrop {
   background: rgba(43, 29, 46, 0.88);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.lightbox[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  .lightbox[open],
+  .lightbox[open]::backdrop {
+    opacity: 0;
+  }
 }
 
 .lb-inner {
@@ -84,6 +104,20 @@
   gap: 0.9rem;
   justify-items: center;
   padding: 1rem;
+  /* .lb-close sits outside this, since a transform here would pin it to the
+     file instead of the screen */
+  transform: translateY(1.5rem) scale(0.94);
+  transition: transform 0.25s ease-out;
+}
+
+.lightbox[open] .lb-inner {
+  transform: none;
+}
+
+@starting-style {
+  .lightbox[open] .lb-inner {
+    transform: translateY(1.5rem) scale(0.94);
+  }
 }
 
 .lb-inner img {
@@ -210,7 +244,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .shot {
+  /* the lightbox still fades, it just doesn't move */
+  .shot,
+  .lb-inner {
     transition: none;
   }
 }

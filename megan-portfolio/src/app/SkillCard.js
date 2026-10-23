@@ -41,7 +41,7 @@ export default function SkillCard({ skill }) {
         </span>
       </button>
       {tools.length ? (
-        <div className="tools" id={listId}>
+        <div className={"tools" + ` ${skill.n}`} id={listId}>
           <p className="tools-h">My toolbox:</p>
           <ul>
             {tools.map((tool, i) => <li key={i}>{tool}</li>)}

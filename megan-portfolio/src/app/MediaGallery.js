@@ -130,6 +130,15 @@ export default function MediaGallery({ media }) {
   };
   const close = () => dialogRef.current?.close();
 
+  // unmount the file (stopping any video) only once the closing animation ends
+  const onClose = () => {
+    const dialog = dialogRef.current;
+    const animations = dialog.getAnimations({ subtree: true }).map((a) => a.finished);
+    Promise.allSettled(animations).then(() => {
+      if (!dialog.open) setViewing(false);
+    });
+  };
+
   const onKeyDown = (e) => {
     // let a playing video keep its own arrow-key seeking
     if (e.target.tagName === "VIDEO") return;
@@ -190,15 +199,15 @@ export default function MediaGallery({ media }) {
         ref={dialogRef}
         className="lightbox"
         aria-label="Project media viewer"
-        onClose={() => setViewing(false)}
+        onClose={onClose}
         onKeyDown={onKeyDown}
         onClick={(e) => {
           if (e.target === e.currentTarget) close();
         }}
       >
+        <button type="button" className="lb-close" onClick={close} aria-label="Close"></button>
         {viewing ? (
           <div className="lb-inner">
-            <button type="button" className="lb-close" onClick={close} aria-label="Close"></button>
             <div className={"lb-stage" + (total > 1 ? " has-arrows" : "")}>
               {total > 1 ? (
                 <button type="button" className="btn lb-arrow prev" onClick={() => step(-1)} aria-label="Previous">

@@ -27,8 +27,8 @@ export default function ZoomImage({ src, alt, width = 1200, height = 900, sizes 
           if (e.target === e.currentTarget) close();
         }}
       >
+        <button type="button" className="lb-close" onClick={close} aria-label="Close"></button>
         <div className="lb-inner">
-          <button type="button" className="lb-close" onClick={close} aria-label="Close"></button>
           <Image
             src={src}
             alt={alt}
