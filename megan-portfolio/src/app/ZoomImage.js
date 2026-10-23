@@ -28,6 +28,7 @@ export default function ZoomImage({ src, alt, width = 1200, height = 900, sizes 
         }}
       >
         <div className="lb-inner">
+          <button type="button" className="lb-close" onClick={close} aria-label="Close"></button>
           <Image
             src={src}
             alt={alt}
@@ -36,9 +37,6 @@ export default function ZoomImage({ src, alt, width = 1200, height = 900, sizes 
             sizes="90vw"
             style={{ width: "auto", height: "auto", maxWidth: "90vw", maxHeight: "82vh" }}
           />
-          <div className="lb-btns">
-            <button type="button" className="btn" onClick={close}>Close</button>
-          </div>
         </div>
       </dialog>
     </>

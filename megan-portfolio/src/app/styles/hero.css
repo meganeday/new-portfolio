@@ -1,0 +1,106 @@
+/* Homepage hero and fanned cards */
+
+.hero {
+  background: var(--rose);
+  color: var(--white);
+}
+
+.hero .wrap {
+  padding-top: 3.5rem;
+  padding-bottom: 3rem;
+  position: relative;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 9vw, 6rem);
+  letter-spacing: -0.01em;
+  margin: 1rem 0 0.5rem;
+}
+
+.hero .tag {
+  display: block;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  color: var(--wine);
+  margin: 0.1rem 0 1rem;
+  transform: rotate(-2deg);
+  transform-origin: left;
+}
+
+.hero p {
+  max-width: 32rem;
+  margin: 0 0 1.5rem;
+  color: var(--plum);
+}
+
+.hero .btns {
+  margin-bottom: 80px;
+}
+
+.fan {
+  position: absolute;
+  height: 350px;
+  max-width: 380px;
+  width: 100%;
+  margin: 0 auto;
+  bottom: 120px;
+  right: 2rem;
+}
+
+.fan .pc {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 180px;
+  height: 260px;
+  margin-left: -90px;
+  transform-origin: 50% 125%;
+  transform: rotate(var(--r));
+  transition: transform 0.25s;
+  animation: deal 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+
+.fan .pc:hover {
+  transform: rotate(var(--r)) translateY(-18px);
+}
+
+.fan .pc:nth-child(1) {
+  --r: -24deg;
+  --bg: var(--moss);
+  animation-delay: 0.1s;
+}
+.fan .pc:nth-child(2) {
+  --r: -8deg;
+  --bg: var(--pink);
+  animation-delay: 0.25s;
+}
+.fan .pc:nth-child(3) {
+  --r: 8deg;
+  --bg: var(--peri);
+  animation-delay: 0.4s;
+}
+.fan .pc:nth-child(4) {
+  --r: 24deg;
+  --bg: var(--butter);
+  animation-delay: 0.55s;
+}
+
+.fan .pc.art {
+  height: 252px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 900px) {
+  .hero .wrap {
+    grid-template-columns: 1fr;
+    padding-top: 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fan .pc {
+    animation: none;
+    opacity: 1;
+    transform: rotate(var(--r));
+  }
+}

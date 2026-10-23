@@ -24,7 +24,7 @@ export default function Gallery({ photos }) {
       <div className="gallery">
         {[0, 1, 2].map((i) => (
           <div className={"shot" + (i === 0 ? " tape" : "")} key={i}>
-            <div className="ph-photo">[add a photo in src/data/skills.js]</div>
+            <div className="ph-photo">[add a photo in src/data/projects/photography.js]</div>
           </div>
         ))}
       </div>
@@ -69,20 +69,25 @@ export default function Gallery({ photos }) {
       >
         {current ? (
           <div className="lb-inner">
-            <Image
-              src={current.src}
-              alt={current.alt}
-              width={current.width || 1200}
-              height={current.height || 800}
-              sizes="90vw"
-              style={{ width: "auto", height: "auto", maxWidth: "90vw", maxHeight: "75vh" }}
-            />
-            {current.caption ? <p className="lb-cap">{current.caption}</p> : null}
-            <div className="lb-btns">
-              <button type="button" className="btn" onClick={() => step(-1)}>Previous</button>
-              <button type="button" className="btn alt" onClick={() => step(1)}>Next</button>
-              <button type="button" className="btn" onClick={close}>Close</button>
+            <button type="button" className="lb-close" onClick={close} aria-label="Close"></button>
+            <div className="lb-stage has-arrows">
+              <button type="button" className="btn lb-arrow prev" onClick={() => step(-1)} aria-label="Previous">
+                <Image src="/icons/left.png" alt="" width={60} height={60} />
+              </button>
+              <Image
+                src={current.src}
+                alt={current.alt}
+                width={current.width || 1200}
+                height={current.height || 800}
+                sizes="90vw"
+                style={{ width: "auto", height: "auto", maxWidth: "calc(90vw - var(--lb-room))", maxHeight: "75vh" }}
+              />
+              <button type="button" className="btn alt lb-arrow next" onClick={() => step(1)} aria-label="Next">
+                <Image src="/icons/right.png" alt="" width={60} height={60} />
+              </button>
             </div>
+            {current.caption ? <p className="lb-cap">{current.caption}</p> : null}
+            <span className="lb-count">{active + 1} of {photos.length}</span>
           </div>
         ) : null}
       </dialog>

@@ -1,0 +1,38 @@
+/* Contact section */
+
+.touch {
+  background-image: url("/background-gingham.jpg");
+  background-repeat: repeat;
+}
+
+.ticket {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--peri);
+  color: var(--plum);
+  border: 2.5px solid var(--plum);
+  border-radius: 18px;
+  box-shadow: 6px 6px 0 var(--plum);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transform: rotate(-1.5deg);
+  outline: 2px dashed var(--plum);
+  outline-offset: -12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ticket h2 {
+  font: italic 2.6rem/1 var(--serif);
+  margin-bottom: 1rem;
+}
+
+.ticket p {
+  margin: 0.75rem 0 1.25rem;
+}
+
+.ticket .btn {
+  background: var(--wine);
+  color: var(--white);
+}

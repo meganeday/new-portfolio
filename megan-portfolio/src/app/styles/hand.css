@@ -1,0 +1,65 @@
+/* Homepage skill cards */
+
+.hand {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem 4rem;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.slot {
+  transform: rotate(var(--t, 0deg));
+  transition: transform 0.25s;
+}
+
+.slot:nth-child(4n + 1) {
+  --t: -2deg;
+}
+.slot:nth-child(4n + 2) {
+  --t: 1.5deg;
+}
+.slot:nth-child(4n + 3) {
+  --t: -1deg;
+}
+.slot:nth-child(4n + 4) {
+  --t: 2deg;
+}
+.slot:hover {
+  transform: rotate(0) translateY(-6px);
+}
+.slot:active {
+  transform: rotate(0) scale(0.97);
+}
+.card-link {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 7;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+}
+.card-link:focus-visible {
+  outline: 3px solid var(--wine);
+  outline-offset: 6px;
+  border-radius: 16px;
+}
+
+@media (max-width: 900px) {
+  .hand {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 901px) {
+  .hand {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 860px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slot {
+    transition: none;
+  }
+}

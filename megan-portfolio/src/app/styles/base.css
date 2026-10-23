@@ -1,0 +1,115 @@
+/* Colors, fonts, resets, and page-wide layout */
+
+:root {
+  --cream: hwb(40 91% 1%);
+  --white: #f9fafd;
+  --rose: #E098AC;
+  --pink: #f59db9;
+  --wine: #721f1f;
+  --peri: #b9c9ee;
+  --butter: #ffe597;
+  --plum: #3b1d2e;
+  --moss: #BBBE0D;
+  --slate: #b9c9ee;
+  --serif: var(--font-serif), "Instrument Serif", serif;
+  --hand: var(--font-hand), "Homemade Apple", "Bradley Hand", cursive;
+  --sans: var(--font-sans), "Albert Sans", sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme:light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  background: var(--moss);
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--plum);
+  font: 400 1.0625rem/1.6 var(--sans);
+  overflow-x: hidden;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .22 0 0 0 0 .15 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--wine);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  margin: 0;
+  line-height: 1;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 2rem auto;
+  padding: 0 1.25rem;
+}
+
+/* .wrap h1 {
+  color: var(--butter);
+} */
+
+.script {
+  font-family: var(--hand);
+}
+
+section {
+  padding: 3rem 0;
+}
+
+.intro {
+  margin-bottom: 2rem;
+}
+
+.intro h2 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+.intro .script {
+  font-size: 1.9rem;
+  color: var(--wine);
+  display: block;
+  transform: rotate(-2deg);
+  margin: 0.25rem 0 2rem;
+}
+
+.intro p {
+  margin: 0.75rem 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

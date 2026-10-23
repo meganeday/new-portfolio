@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { skills } from "../../../data/skills";
+import CaseStudy from "../../CaseStudy";
 import Gallery from "../../Gallery";
+import SkillCard from "../../SkillCard";
 import ZoomImage from "../../ZoomImage";
  
 export const instant = false;
@@ -30,6 +32,7 @@ export default async function SkillPage({ params }) {
   const prev = skills[(i - 1 + skills.length) % skills.length];
   const next = skills[(i + 1) % skills.length];
   const isGallery = skill.layout === "gallery";
+  const isCaseStudy = skill.layout === "case-study";
  
   return (
     <>
@@ -41,16 +44,7 @@ export default async function SkillPage({ params }) {
             <span className="tag script">{skill.tagline}</span>
             <p>{skill.t}</p>
           </div>
-          <div className="skill-card pc art">
-            <Image
-              src={`/cards/${skill.img}.png`}
-              alt={`${skill.n} playing card`}
-              width={1000}
-              height={1400}
-              sizes="260px"
-              priority
-            />
-          </div>
+          <SkillCard skill={skill} />
         </div>
       </header>
       <div className="scallop" aria-hidden="true"></div>
@@ -61,13 +55,24 @@ export default async function SkillPage({ params }) {
             <Gallery photos={skill.photos} />
           </div>
         </section>
+      ) : isCaseStudy ? (
+        <section>
+          <div className="wrap">
+            <div className="intro">
+              <h2>Projects</h2>
+            </div>
+            <div className="case-list">
+              {skill.projects.map((p, idx) => <CaseStudy p={p} key={idx} />)}
+            </div>
+          </div>
+        </section>
       ) : (
         <section>
           <div className="wrap">
             <div className="intro">
               <h2>Projects</h2>
             </div>
- 
+
             <div className="proj-list">
               {skill.projects.map((p, idx) => (
                 <article className="proj" key={idx}>
@@ -104,16 +109,24 @@ export default async function SkillPage({ params }) {
  
       <section>
         <div className="wrap">
-          <div className="btns">
-            <Link className="btn" href={`/skills/${prev.slug}`}>Previous card: {prev.n}</Link>
-            <Link className="btn alt" href={`/skills/${next.slug}`}>Next card: {next.n}</Link>
-            <Link className="btn" href="/#touch">Get in touch!</Link>
+          <div className="btns btns__skills">
+            <Link className="btn btn-arrow" href={`/skills/${prev.slug}`} aria-label={`Previous card: ${prev.n}`}>
+              <Image src="/icons/left.png" alt="" width={60} height={60} />
+              {prev.n}
+            </Link>
+            <Link className="btn alt btn-arrow" href={`/skills/${next.slug}`} aria-label={`Next card: ${next.n}`}>
+              {next.n}
+              <Image src="/icons/right.png" alt="" width={60} height={60} />
+            </Link>
           </div>
         </div>
       </section>
- 
+
       <div className="awning t" aria-hidden="true"></div>
-      <footer>made with love in Champaign, Illinois</footer>
+      <footer>
+        made with love in Champaign, Illinois
+        <Link className="foot-link" href="/#touch">get in touch</Link>
+      </footer>
     </>
   );
 }

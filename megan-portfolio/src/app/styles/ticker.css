@@ -1,0 +1,36 @@
+/* Scrolling ticker */
+
+.tick {
+  background: var(--moss);
+  color: var(--cream);
+  overflow: hidden;
+  white-space: nowrap;
+  font: italic 1.05rem var(--serif);
+  padding: 0.4rem 0;
+}
+
+.tick.dark {
+  background: var(--plum);
+  color: var(--moss);
+}
+
+.tick div {
+  display: inline-block;
+  animation: mq 28s linear infinite;
+}
+
+.tick span {
+  padding: 0 1.1rem;
+}
+
+@keyframes mq {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tick div {
+    animation: none;
+  }
+}

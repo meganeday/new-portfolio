@@ -1,0 +1,265 @@
+/* Skill pages: hero, flipping card, tools list, projects */
+
+.crumb {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font: 700 1.4rem/1 var(--hand);
+  color: var(--moss);
+  width: 100%;
+  text-align: right;
+
+  &:hover {
+    color: var(--butter);
+  }
+}
+
+.skill-hero {
+  position: relative;
+  background-color: var(--plum);
+
+  + .scallop::before {
+  background-color: var(--plum);
+  }
+
+  .tag {
+    color: var(--peri);
+  }
+
+  h1 {
+    color: var(--rose);
+  }
+
+  p {
+    color: var(--white);
+  }
+}
+
+.skill-card {
+  position: absolute;
+  width: min(250px, 70%);
+  aspect-ratio: 5 / 7;
+  margin: 0 auto;
+  transform: rotate(4deg);
+  transition: transform 0.25s;
+  animation: deal 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+  bottom: -80px;
+  right: 30px;
+  z-index: 2;
+}
+
+/* only lift on devices with a real mouse; on phones a tap left it stuck up */
+@media (hover: hover) {
+  .skill-card:hover {
+    transform: rotate(4deg) translateY(-18px);
+  }
+}
+
+.skill-card .flip {
+  all: unset;
+  display: block;
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  perspective: 1000px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.skill-card .flip:focus-visible {
+  outline: 3px solid var(--moss);
+  outline-offset: 6px;
+  border-radius: 16px;
+}
+
+.skill-card .inner {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.55s cubic-bezier(0.3, 0.7, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.skill-card.flipped .inner {
+  transform: rotateY(180deg);
+}
+
+.skill-card .face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.skill-card .back {
+  transform: rotateY(180deg);
+}
+
+/* tools list that slides out beside the flipped card */
+.tools {
+  position: absolute;
+  top: 50%;
+  right: calc(95%);
+  width: 180px;
+  color: var(--white);
+  opacity: 0;
+  visibility: hidden;
+  font-size: 1rem;
+  transform: translate(2.5rem, -50%) rotate(-7deg);
+  transition: opacity 0.3s, transform 0.45s cubic-bezier(0.3, 0.7, 0.2, 1), visibility 0.3s;
+}
+
+.skill-card.flipped .tools {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%) rotate(-4deg);
+  transition-delay: 0.2s;
+}
+
+/* .skill-hero prefix beats the .hero p and .skill-hero p rules */
+.skill-hero .tools-h {
+  margin: 0 0 1rem;
+  font: 700 1.25rem/1 var(--hand);
+  color: var(--butter);
+}
+
+.tools ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  list-style-type: circle;
+  line-height: 1.5;
+}
+
+/* On small screens the card sits below the hero text instead of on top of it,
+   smaller and still overlapping the scallop edge. The tools list stays to its left. */
+@media (max-width: 700px) {
+  .skill-card {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 150px;
+    margin: 2rem 0.75rem -40px auto;
+  }
+
+  /* lined up with the card's top so long lists stay above the scallop */
+  .tools {
+    top: 0;
+    right: calc(100%);
+    width: min(180px, calc(100vw - 150px - 4.5rem));
+    font-size: 0.95rem;
+    transform: translate(1.5rem, 0) rotate(-4deg);
+  }
+
+  .skill-card.flipped .tools {
+    transform: translate(0, 0) rotate(-4deg);
+  }
+
+  .skill-hero .tools-h {
+    margin-bottom: 0.5rem;
+  }
+
+  .tools ul {
+    line-height: 1.4;
+  }
+}
+
+.proj-list {
+  display: grid;
+  gap: 3.5rem;
+}
+
+.proj {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.proj:nth-child(even) {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.proj:nth-child(even) .proj-media {
+  order: 2;
+  transform: rotate(2deg);
+}
+
+.proj-media {
+  position: relative;
+  background: #fff;
+  padding: 0.8rem;
+  border: 2.5px solid var(--plum);
+  box-shadow: 6px 6px 0 var(--plum);
+  transform: rotate(-2deg);
+}
+
+.proj-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.proj-media .zoom {
+  all: unset;
+  display: block;
+  cursor: zoom-in;
+}
+
+.proj-media .zoom:focus-visible {
+  outline: 3px solid var(--tom);
+  outline-offset: 4px;
+}
+
+.proj-media .ph {
+  aspect-ratio: 4 / 3;
+  background: var(--lime);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font: 700 1.4rem var(--hand);
+  padding: 1rem;
+}
+
+.proj-meta {
+  margin: 0;
+  font: 700 1.2rem var(--sans);
+}
+
+.proj-body h3 {
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  margin: 0.4rem 0 0.6rem;
+}
+
+.proj-body p {
+  margin: 0 0 0.75rem;
+}
+
+.proj-points {
+  margin: 0.5rem 0 1.25rem;
+  padding-left: 1.1rem;
+  list-style-type:circle;
+}
+
+.btns__skills {
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .proj,
+  .proj:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .proj:nth-child(even) .proj-media {
+    order: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card,
+  .skill-card:hover {
+    animation: none;
+    opacity: 1;
+    transform: rotate(4deg);
+    transition: none;
+  }
+  .skill-card .inner,
+  .tools {
+    transition: none;
+  }
+}
