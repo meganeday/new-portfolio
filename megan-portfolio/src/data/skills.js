@@ -19,7 +19,7 @@ export const skills = [
     slug: "graphic-design",
     n: "graphic design",
     img: "graphic_design",
-    t: `While my knowledge of design software is admittedly limited, I love stretching the limits of the tools I use each day. One of my favorite responses to work I've created is a surprised, "You made this in Canva?!"`,
+    t: `I love stretching the limits of the tools I use each day. One of my favorite responses to work I've created is a surprised, "You made this in Canva?!"`,
     tagline: "Designed with purpose",
     tools: ["Canva", "Adobe Photoshop", "Adobe Express"],
     zoomImages: true, // click a project image to open it larger
@@ -58,7 +58,7 @@ export const skills = [
     n: "web development",
     img: "web",
     layout: "case-study",
-    t: "Before working in marketing, I spent four years as a frontend web developer. I love working with code, but I yearned for more variety in my day to day work. While I work primarily in Digital Communications now, I still dabble in code, and I love playing around with these skills whenever I can!",
+    t: "Before working in marketing, I spent four years as a frontend web developer. I love working with code, but I yearned for more variety in my day to day work. While I work primarily in Digital Communications now, I still write code, and I love putting these skills to work whenever I can!",
     tagline: "Built with intention",
     tools: ["React.js", "Next.js", "Tailwind", "HTML + CSS", "Github", "Vercel", "Claude Code + Github Copilot"],
     projects: webDevelopment,

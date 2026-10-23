@@ -30,6 +30,7 @@
 .case-sum:hover h3 {
   text-decoration: underline wavy var(--rose);
   text-underline-offset: 6px;
+  margin-bottom: 1rem;
   text-decoration-skip-ink: none; /* run the line under g, y, p instead of breaking around them */
 }
 

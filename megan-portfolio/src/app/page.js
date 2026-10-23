@@ -34,7 +34,7 @@ export default function Home() {
               While I work in communications now, I spent several years as a Frontend Web Developer, and I still love to code and build things whenever I can (I built this site myself!). I’m a multi-disciplinary creative who thrives on variety, collaboration, and learning new things.
             </p>
             <div className="btns">
-              <SmoothScrollLink className="btn" href="#hand-h">Take a peak at my hand</SmoothScrollLink>
+              <SmoothScrollLink className="btn" href="#hand-h">Take a peek at my hand</SmoothScrollLink>
               <SmoothScrollLink className="btn alt" href="#touch">Say hi!</SmoothScrollLink>
             </div>
           </div>
@@ -93,6 +93,7 @@ export default function Home() {
             <div className="btns" style={{ justifyContent: "center" }}>
               <a className="btn" href="mailto:meghubbert@gmail.com">meghubbert@gmail.com</a>
               <a className="btn" href="https://www.linkedin.com/in/meganhubbert">LinkedIn</a>
+              <a className="btn" href="/Hubbert_Megan_Resume.pdf" target="_blank" rel="noopener">View my resume</a>
             </div>
           </div>
         </div>

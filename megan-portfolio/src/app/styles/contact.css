@@ -35,4 +35,8 @@
 .ticket .btn {
   background: var(--wine);
   color: var(--white);
+  text-transform: none;
+  /* a little smaller than the default so all three fit the ticket comfortably */
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
 }

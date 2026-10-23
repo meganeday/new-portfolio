@@ -71,6 +71,8 @@
   padding: calc(env(safe-area-inset-top, 0px) + 5rem) 2rem 2rem;
   background: var(--cream);
   border-left: 2px solid var(--plum);
+  display: flex;
+  flex-direction: column;
   transform: translateX(100%);
   visibility: hidden;
   transition: transform 0.35s cubic-bezier(0.3, 0.7, 0.2, 1), visibility 0s 0.35s;
@@ -101,6 +103,22 @@
 .nav-main a {
   display: block;
   font: 2.2rem/1.25 var(--serif);
+}
+
+/* pinned to the bottom of the menu; on short screens it just follows the skills */
+.nav-menu .nav-resume {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.nav-menu .nav-skills {
+  margin-bottom: 2rem;
+}
+
+/* keep the button's own look instead of the menu's underlined link hover */
+.nav-menu .nav-resume:hover {
+  text-decoration: none;
+  color: var(--plum);
 }
 
 .nav-label {

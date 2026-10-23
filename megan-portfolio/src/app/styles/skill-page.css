@@ -105,7 +105,7 @@
   transition: opacity 0.3s, transform 0.45s cubic-bezier(0.3, 0.7, 0.2, 1), visibility 0.3s;
 }
 
-.tools.photography {
+.tools.photography, .tools.graphic {
   top: 60%;
 }
 

@@ -25,16 +25,22 @@
   margin: 0.1rem 0 1rem;
   transform: rotate(-2deg);
   transform-origin: left;
+  text-transform: none;
 }
 
 .hero p {
   max-width: 32rem;
   margin: 0 0 1.5rem;
   color: var(--plum);
+  text-transform: none;
 }
 
 .hero .btns {
   margin-bottom: 80px;
+}
+
+.hero .btn {
+  text-transform: none;
 }
 
 .fan {
