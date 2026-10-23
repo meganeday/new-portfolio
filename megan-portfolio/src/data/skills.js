@@ -60,7 +60,7 @@ export const skills = [
     layout: "case-study",
     t: "Before working in marketing, I spent four years as a frontend web developer. I love working with code, but I yearned for more variety in my day to day work. While I work primarily in Digital Communications now, I still dabble in code, and I love playing around with these skills whenever I can!",
     tagline: "Built with intention",
-    tools: ["React.js", "Next.js", "Tailwind", "HTML + CSS", "Vercel", "Claude Code + Github Copilot"],
+    tools: ["React.js", "Next.js", "Tailwind", "HTML + CSS", "Github", "Vercel", "Claude Code + Github Copilot"],
     projects: webDevelopment,
   },
 ];
