@@ -128,6 +128,31 @@
   max-width: 40rem;
 }
 
+.case-sec + .case-sec {
+  margin-top: 1rem;
+}
+
+/* the gap above comes from the margin, not the last paragraph or list */
+.case-sec > :last-child {
+  margin-bottom: 0;
+}
+
+.case-sec h4 {
+  margin: 0 0 0.4rem;
+  font: 1.3rem/1.1 var(--hand);
+  color: var(--wine);
+}
+
+.case-sec ul {
+  margin: 0 0 0.9rem;
+  padding-left: 1.2rem;
+  max-width: 40rem;
+}
+
+.case-sec li + li {
+  margin-top: 0.35rem;
+}
+
 .case-text .btn {
   margin-top: 0.5rem;
 }
@@ -444,6 +469,37 @@
   position: relative;
   width: min(calc(90vw - var(--lb-room)), 960px);
   aspect-ratio: 16 / 9;
+}
+
+/* embeds side by side (mediaLayout: "grid"). 326px is the narrowest an
+   Instagram embed is meant to be shown */
+.embed-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 326px), 1fr));
+  gap: 1.5rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+.embed-cell {
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: var(--shadow-soft-sm);
+}
+
+.embed-cell iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* tall embeds (Reels, TikToks) are sized by height instead, so they fit the screen */
+.lb-embed.tall {
+  width: auto;
+  height: min(78vh, 760px);
+  max-width: calc(90vw - var(--lb-room));
 }
 
 .lb-embed iframe {

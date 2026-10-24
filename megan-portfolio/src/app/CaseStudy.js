@@ -1,6 +1,52 @@
 import Drawer from "./Drawer";
 import MediaGallery from "./MediaGallery";
 
+// Embeds (like Instagram posts) shown side by side and playable in place,
+// for projects with mediaLayout: "grid" instead of the gallery viewer.
+function EmbedGrid({ media }) {
+  return (
+    <div className="embed-grid">
+      {media.map((m, i) => (
+        <div className="embed-cell" key={i} style={{ aspectRatio: m.ratio || "16 / 9" }}>
+          <iframe
+            src={m.src}
+            title={m.alt}
+            loading="lazy"
+            allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// A details entry is either a plain paragraph (a string) or a labeled section:
+// { heading, text, points }, where text and points are optional and each point
+// is a string or { label, text } for a bolded lead-in.
+function Detail({ d }) {
+  if (typeof d === "string") return <p>{d}</p>;
+  return (
+    <section className="case-sec">
+      <h4>{d.heading}</h4>
+      {d.text ? <p>{d.text}</p> : null}
+      {d.points ? (
+        <ul>
+          {d.points.map((pt, i) =>
+            typeof pt === "string" ? (
+              <li key={i}>{pt}</li>
+            ) : (
+              <li key={i}>
+                <b>{pt.label}:</b> {pt.text}
+              </li>
+            )
+          )}
+        </ul>
+      ) : null}
+    </section>
+  );
+}
+
 export default function CaseStudy({ p }) {
   const kpis = p.kpis || [];
   const tools = p.tools || [];
@@ -26,7 +72,7 @@ export default function CaseStudy({ p }) {
       <div className="case-body">
         <div className="case-grid">
           <div className="case-text">
-            {(p.details || []).map((d, i) => <p key={i}>{d}</p>)}
+            {(p.details || []).map((d, i) => <Detail d={d} key={i} />)}
             {p.link ? (
               <a className="btn" href={p.link} target="_blank" rel="noopener noreferrer">
                 {p.linkLabel}
@@ -52,7 +98,7 @@ export default function CaseStudy({ p }) {
                 ) : null}
                 {tools.length ? (
                   <div>
-                    <h4>Built with</h4>
+                    <h4>{p.toolsLabel || "Built with"}</h4>
                     <ul className="case-tools">
                       {tools.map((t, i) => <li key={i}>{t}</li>)}
                     </ul>
@@ -63,7 +109,11 @@ export default function CaseStudy({ p }) {
           ) : null}
         </div>
 
-        {media.length ? <MediaGallery media={media} /> : null}
+        {!media.length ? null : p.mediaLayout === "grid" ? (
+          <EmbedGrid media={media} />
+        ) : (
+          <MediaGallery media={media} />
+        )}
       </div>
     </Drawer>
   );

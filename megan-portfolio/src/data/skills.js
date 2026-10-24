@@ -1,5 +1,6 @@
 import { graphicDesign } from "./projects/graphic-design";
 import { photos } from "./projects/photography";
+import { socialMedia } from "./projects/social-media";
 import { videoProduction } from "./projects/video-production";
 import { webDevelopment } from "./projects/web-development";
 import { writing } from "./projects/writing";
@@ -49,17 +50,18 @@ export const skills = [
     slug: "social-media",
     n: "social media",
     img: "social",
-    t: "Captions, graphics, and short video across platforms, plus the campaigns that tie them together.",
-    tagline: "Coming soon.",
+    layout: "case-study",
+    t: "Through overseeing content creation, scheduling, and strategy, I've coordinated some pretty fun campaigns!",
+    tagline: "Crafted to convert",
     tools: ["Buffer (scheduling)", "Airtable (project management)"],
-    projects: [],
+    projects: socialMedia,
   },
   {
     slug: "web-development",
     n: "web development",
     img: "web",
     layout: "case-study",
-    t: "Before working in marketing, I spent four years as a frontend web developer. I love working with code, but I yearned for more variety in my day to day work. While I work primarily in Digital Communications now, I still write code, and I love putting these skills to work whenever I can!",
+    t: "Before working in marketing, I spent four years as a frontend web developer. I love working with code, but I yearned for more variety in my day to day work. While I work primarily in Digital Communications now, I still love to code when I can.",
     tagline: "Built with intention",
     tools: ["React.js", "Next.js", "Tailwind", "HTML + CSS", "Github", "Vercel", "Claude Code + Github Copilot"],
     projects: webDevelopment,

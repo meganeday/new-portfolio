@@ -75,8 +75,9 @@ function Full({ m }) {
     );
   }
   if (m.type === "embed") {
+    // ratio (like "9 / 16") is for tall embeds such as Reels; wide ones default to 16:9
     return (
-      <div className="lb-embed">
+      <div className={"lb-embed" + (m.ratio ? " tall" : "")} style={m.ratio ? { aspectRatio: m.ratio } : undefined}>
         <iframe
           key={m.src}
           src={m.src}

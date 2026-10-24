@@ -51,6 +51,44 @@ body::after {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .22 0 0 0 0 .15 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* scrollbars: a flat rose pill on a cream track. Chrome, Edge, and Safari use the ::-webkit-scrollbar rules.
+   Firefox can only set colors, so it gets those instead. (Chrome ignores
+   these rules on anything that sets scrollbar-color or scrollbar-width,
+   which is why Firefox's colors are kept out of its way.) */
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  /* the transparent border plus padding-box clip leaves a gap around the pill */
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: var(--rose) padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--pink);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--wine);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--cream);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: var(--rose) var(--cream);
+  }
+}
+
 a {
   color: inherit;
 }
@@ -85,7 +123,7 @@ h3 {
 }
 
 section {
-  padding: 3rem 0;
+  padding: 0.75rem 0;
 }
 
 .intro {
