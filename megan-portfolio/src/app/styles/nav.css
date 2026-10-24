@@ -13,16 +13,26 @@
   align-items: center;
   gap: 5px;
   background: var(--moss);
-  border: 2px solid var(--plum);
+  border: 0;
   border-radius: 50%;
-  box-shadow: 3px 3px 0 var(--plum), inset 0 2px 0 rgba(255, 255, 255, 0.55);
+  /* same soft shading as .btn in components.css */
+  box-shadow:
+    inset -4px -4px 8px var(--btn-shade),
+    inset 4px 4px 8px var(--btn-glow);
   cursor: pointer;
-  transition: transform 0.12s, box-shadow 0.12s;
+  transition: box-shadow 0.2s;
 }
 
 .burger:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 var(--plum), inset 0 2px 0 rgba(255, 255, 255, 0.55);
+  box-shadow:
+    inset 4px 4px 8px var(--btn-shade),
+    inset -4px -4px 8px var(--btn-glow);
+}
+
+.burger:active {
+  box-shadow:
+    inset 6px 6px 12px var(--btn-shade),
+    inset -5px -5px 10px var(--btn-glow);
 }
 
 .burger span {

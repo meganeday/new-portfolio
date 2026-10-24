@@ -3,7 +3,7 @@
 .pc {
   border: 2.5px solid var(--plum);
   border-radius: 16px;
-  box-shadow: 5px 5px 0 var(--plum), inset 0 0 0 5px rgba(255, 255, 255, 0.3), inset 0 -8px 12px rgba(59, 29, 46, 0.12);
+  box-shadow: var(--shadow-soft), inset 0 0 0 5px rgba(255, 255, 255, 0.3), inset 0 -8px 12px rgba(59, 29, 46, 0.12);
   background: var(--bg, var(--cream));
   color: var(--plum);
 }
@@ -13,7 +13,7 @@
   background: none;
   overflow: hidden;
   border-radius: 14px;
-  box-shadow: 4px 4px 0 var(--plum), 0 10px 20px rgba(43, 29, 46, 0.2);
+  box-shadow: var(--shadow-soft);
 }
 
 .pc.art img {

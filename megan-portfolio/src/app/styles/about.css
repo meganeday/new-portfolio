@@ -15,7 +15,7 @@
   background: #fff;
   border: 2.5px solid var(--plum);
   border-radius: 16px;
-  box-shadow: 6px 6px 0 var(--plum);
+  box-shadow: var(--shadow-soft);
   padding: 1.5rem;
 }
 
@@ -47,7 +47,7 @@
   background: #fff;
   padding: 0.8rem 0.8rem 2.8rem;
   border: 2.5px solid var(--plum);
-  box-shadow: 6px 6px 0 var(--plum);
+  box-shadow: var(--shadow-soft);
   transform: rotate(3deg);
   max-width: 300px;
   margin: 0 auto;

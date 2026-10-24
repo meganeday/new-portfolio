@@ -17,7 +17,7 @@
   background: #fff;
   padding: 0.7rem 0.7rem 1rem;
   border: 2.5px solid var(--plum);
-  box-shadow: 5px 5px 0 var(--plum);
+  box-shadow: var(--shadow-soft);
   transform: rotate(var(--t, 0deg));
   transition: transform 0.2s;
 }
@@ -144,12 +144,14 @@
   z-index: 1;
   width: 3rem;
   height: 3rem;
-  border: 2px solid var(--plum);
   border-radius: 50%;
   background: var(--butter);
-  box-shadow: 3px 3px 0 var(--plum);
+  /* same soft shading as .btn in components.css */
+  box-shadow:
+    inset -4px -4px 8px var(--btn-shade),
+    inset 4px 4px 8px var(--btn-glow);
   cursor: pointer;
-  transition: transform 0.12s, box-shadow 0.12s;
+  transition: box-shadow 0.2s;
 }
 
 .lb-close::before,
@@ -171,13 +173,15 @@
 }
 
 .lb-close:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 var(--plum);
+  box-shadow:
+    inset 4px 4px 8px var(--btn-shade),
+    inset -4px -4px 8px var(--btn-glow);
 }
 
 .lb-close:active {
-  transform: translate(3px, 3px);
-  box-shadow: 0 0 0 var(--plum);
+  box-shadow:
+    inset 6px 6px 12px var(--btn-shade),
+    inset -5px -5px 10px var(--btn-glow);
 }
 
 .lb-close:focus-visible {

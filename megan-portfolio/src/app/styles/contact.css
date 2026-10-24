@@ -12,7 +12,7 @@
   color: var(--plum);
   border: 2.5px solid var(--plum);
   border-radius: 18px;
-  box-shadow: 6px 6px 0 var(--plum);
+  box-shadow: var(--shadow-soft);
   padding: 2rem 1.5rem;
   text-align: center;
   transform: rotate(-1.5deg);
@@ -33,7 +33,10 @@
 }
 
 .ticket .btn {
-  background: var(--wine);
+  --btn-bg: var(--wine);
+  /* the default white glow is too bright on a dark button */
+  --btn-glow: rgba(255, 255, 255, 0.22);
+  --btn-shade: rgba(30, 10, 20, 0.35);
   color: var(--white);
   text-transform: none;
   /* a little smaller than the default so all three fit the ticket comfortably */

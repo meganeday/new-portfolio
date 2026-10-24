@@ -14,7 +14,7 @@
   background: #fff;
   border: 2.5px solid var(--plum);
   border-radius: 18px;
-  box-shadow: 6px 6px 0 var(--plum);
+  box-shadow: var(--shadow-soft);
 }
 
 .case-sum {
@@ -63,11 +63,26 @@
   position: relative;
   width: 2.75rem;
   height: 2.75rem;
-  border: 2px solid var(--plum);
   border-radius: 50%;
   background: var(--butter);
-  box-shadow: 3px 3px 0 var(--plum);
-  transition: transform 0.25s;
+  /* same soft shading as .btn in components.css; it looks pressed while the
+     card is hovered, since the whole card is the clickable part */
+  box-shadow:
+    inset -4px -4px 8px var(--btn-shade),
+    inset 4px 4px 8px var(--btn-glow);
+  transition: box-shadow 0.2s;
+}
+
+.case-sum:hover .case-toggle {
+  box-shadow:
+    inset 4px 4px 8px var(--btn-shade),
+    inset -4px -4px 8px var(--btn-glow);
+}
+
+.case-sum:active .case-toggle {
+  box-shadow:
+    inset 6px 6px 12px var(--btn-shade),
+    inset -5px -5px 10px var(--btn-glow);
 }
 
 .case-toggle::before,
@@ -117,69 +132,92 @@
   margin-top: 0.5rem;
 }
 
+/* the numbers and tools panel, styled as a receipt. The shadow sits on the
+   outer .case-side, since the mask that tears the receipt's edges would
+   clip a shadow on the receipt itself. */
 .case-side {
-  display: grid;
-  gap: 1.5rem;
-  background: #fff;
-  border: 2.5px solid var(--plum);
-  border-radius: 16px;
-  box-shadow: 6px 6px 0 var(--plum);
-  padding: 1.25rem;
+  filter: drop-shadow(1px 2px 3px rgba(59, 29, 46, 0.16)) drop-shadow(4px 10px 14px rgba(59, 29, 46, 0.18));
   transform: rotate(1deg);
 }
 
-.case-side h4 {
-  margin: 0 0 1rem 0.6rem;
-  font: 1.3rem/1 var(--hand);
+.receipt {
+  --zig: 8px; /* depth of the torn zigzag edges */
+  display: grid;
+  gap: 1.75rem;
+  background: #fffdf7;
+  color: var(--plum);
+  font: 0.85rem/1.45 ui-monospace, Menlo, Consolas, "Courier New", monospace;
+  padding: calc(1.5rem + var(--zig)) 1.4rem calc(1.25rem + var(--zig));
+  /* each half is a row of downward (top) or upward (bottom) wedges, which
+     leaves zigzag teeth along that edge */
+  mask:
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top / calc(2 * var(--zig)) 51% repeat-x,
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(2 * var(--zig)) 51% repeat-x;
+}
+
+.receipt h4 {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1.5px dashed var(--plum);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* a decorative barcode along the bottom: two stripe patterns with different
+   spacing overlap so the bars look irregular */
+.receipt::after {
+  content: "";
+  height: 2.75rem;
+  margin: 0 0.5rem;
+  background:
+    repeating-linear-gradient(90deg, var(--plum) 0 2px, #0000 2px 5px),
+    repeating-linear-gradient(90deg, var(--plum) 0 1px, #0000 1px 7px);
 }
 
 .kpis {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
-  gap: 0.75rem;
+  gap: 0.6rem;
   margin: 0;
 }
 
-/* the value comes after the label in the markup, but shows on top */
+/* one line item: label on the left, value on the right */
 .kpi {
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
-  background: var(--bg, var(--rose));
-  border: 2px solid var(--plum);
-  border-radius: 12px;
-  padding: 0.7rem 0.8rem;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px dotted rgba(59, 29, 46, 0.45);
 }
 
-.kpi:nth-child(3n + 2) {
-  --bg: var(--peri);
-}
-.kpi:nth-child(3n + 3) {
-  --bg: var(--moss);
+.kpi dt {
+  flex: 1;
+  font-size: 0.8rem;
+  line-height: 1.35;
 }
 
 .kpi dd {
   margin: 0;
-  font: 2.2rem/1 var(--serif);
-}
-
-.kpi dt {
-  margin-top: 0.3rem;
-  font-size: 0.85rem;
-  line-height: 1.3;
+  font-size: 1.05rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .case-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 0.25rem;
+  display: grid;
+  gap: 0.2rem;
   list-style: none;
   margin: 0;
   padding: 0;
+  text-transform: uppercase;
 }
 
-.case-tools .chip {
-  font-size: 1.05rem;
+.case-tools li::before {
+  content: "1 x " / ""; /* the empty alt text keeps screen readers from reading it */
+  opacity: 0.6;
 }
 
 /* media viewer: featured file, arrows, thumbnail strip */
@@ -204,7 +242,7 @@
   background: var(--cream);
   border: 2.5px solid var(--plum);
   border-radius: 12px;
-  box-shadow: 5px 5px 0 var(--plum);
+  box-shadow: var(--shadow-soft);
   padding: 0.7rem;
   cursor: zoom-in;
 }
@@ -246,13 +284,15 @@
   place-items: center;
   width: 3rem;
   height: 3rem;
-  border: 2px solid var(--plum);
   border-radius: 50%;
   background: var(--butter);
-  box-shadow: 3px 3px 0 var(--plum);
+  /* same soft shading as .btn in components.css */
+  box-shadow:
+    inset -4px -4px 8px var(--btn-shade),
+    inset 4px 4px 8px var(--btn-glow);
   font: 700 2rem/1 var(--sans);
   cursor: pointer;
-  transition: transform 0.12s, box-shadow 0.12s;
+  transition: box-shadow 0.2s;
 }
 
 .mg-arrow img {
@@ -265,13 +305,15 @@
 }
 
 .mg-arrow:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 var(--plum);
+  box-shadow:
+    inset 4px 4px 8px var(--btn-shade),
+    inset -4px -4px 8px var(--btn-glow);
 }
 
 .mg-arrow:active {
-  transform: translate(3px, 3px);
-  box-shadow: 0 0 0 var(--plum);
+  box-shadow:
+    inset 6px 6px 12px var(--btn-shade),
+    inset -5px -5px 10px var(--btn-glow);
 }
 
 .mg-arrow:focus-visible {
@@ -322,7 +364,7 @@
 .mg-thumb[aria-current="true"] {
   opacity: 1;
   transform: translateY(-3px);
-  box-shadow: 0 0 0 3px var(--rose), 3px 3px 0 3px var(--plum);
+  box-shadow: 0 0 0 3px var(--rose), var(--shadow-soft-sm);
 }
 
 .mg-thumb:focus-visible {
@@ -338,10 +380,12 @@
   width: 3.5rem;
   height: 3.5rem;
   margin: -1.75rem 0 0 -1.75rem;
-  border: 2px solid var(--plum);
   border-radius: 50%;
   background: var(--butter);
-  box-shadow: 3px 3px 0 var(--plum);
+  /* same soft shading as .btn in components.css */
+  box-shadow:
+    inset -4px -4px 8px var(--btn-shade),
+    inset 4px 4px 8px var(--btn-glow);
 }
 
 .play-badge::after {

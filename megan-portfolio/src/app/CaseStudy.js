@@ -36,27 +36,29 @@ export default function CaseStudy({ p }) {
 
           {kpis.length || tools.length ? (
             <aside className="case-side">
-              {kpis.length ? (
-                <div>
-                  <h4 className="chip alt">By the numbers</h4>
-                  <dl className="kpis">
-                    {kpis.map((k, i) => (
-                      <div className="kpi" key={i}>
-                        <dt>{k.label}</dt>
-                        <dd>{k.value}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
-              ) : null}
-              {tools.length ? (
-                <div>
-                  <h4 className="chip alt">Built with</h4>
-                  <ul className="case-tools">
-                    {tools.map((t, i) => <li className="pill" key={i}>{t}</li>)}
-                  </ul>
-                </div>
-              ) : null}
+              <div className="receipt">
+                {kpis.length ? (
+                  <div>
+                    <h4>By the numbers</h4>
+                    <dl className="kpis">
+                      {kpis.map((k, i) => (
+                        <div className="kpi" key={i}>
+                          <dt>{k.label}</dt>
+                          <dd>{k.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                ) : null}
+                {tools.length ? (
+                  <div>
+                    <h4>Built with</h4>
+                    <ul className="case-tools">
+                      {tools.map((t, i) => <li key={i}>{t}</li>)}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
             </aside>
           ) : null}
         </div>
