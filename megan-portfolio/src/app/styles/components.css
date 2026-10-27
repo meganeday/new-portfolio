@@ -253,24 +253,15 @@ footer {
   background: var(--plum);
   color: var(--moss);
   text-align: center;
-  padding: 1.5rem 1rem 2rem;
+  /* even padding and a tight line height keep the handwriting centered;
+     the script font's tall letter box makes the usual 1.6 float it */
+  padding: 1.75rem 1rem;
   font-family: var(--hand);
   font-size: 1.3rem;
+  line-height: 1.2;
 }
 
-.foot-link {
-  display: block;
-  width: fit-content;
-  margin: 0.5rem auto;
-  color: var(--butter);
-  font: 700 1rem var(--sans);
-  text-underline-offset: 4px;
-}
-
-.foot-link:hover {
-  color: var(--peri);
-}
-
-.foot-link:focus-visible {
-  outline-color: var(--butter);
+footer .crumb {
+  margin-bottom: 0; /* the back-link style adds space below, which lifts it off-center here */
+  text-align: center;
 }

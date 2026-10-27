@@ -3,7 +3,7 @@
 .crumb {
   display: inline-block;
   margin-bottom: 1rem;
-  font: 700 1.4rem/1 var(--hand);
+  font: 1.4rem/1 var(--hand);
   color: var(--moss);
   width: 100%;
   text-align: right;

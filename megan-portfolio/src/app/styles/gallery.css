@@ -3,6 +3,7 @@
 .gallery {
   columns: 3 280px;
   column-gap: 1.75rem;
+  margin-top: 4.5rem;
 }
 
 .shot {

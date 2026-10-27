@@ -98,7 +98,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <footer>made with love in Champaign, Illinois</footer>
+      <footer>© Megan Hubbert, 2026</footer>
     </>
   );
 }

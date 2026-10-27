@@ -110,13 +110,9 @@ h3 {
 
 .wrap {
   max-width: 1080px;
-  margin: 2rem auto;
+  margin: 1.5rem auto 2rem;
   padding: 0 1.25rem;
 }
-
-/* .wrap h1 {
-  color: var(--butter);
-} */
 
 .script {
   font-family: var(--hand);
