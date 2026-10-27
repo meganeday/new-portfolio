@@ -202,19 +202,10 @@
   --lb-room: 9rem;
 }
 
-/* the arrows are the same round enamel pins as the case study gallery's
-   (.mg-arrow in case-study.css); the .lb-inner prefix beats the bordered
-   .lb-inner img rule above */
+/* the arrows are the same round enamel pins, chevrons and all, as the case
+   study gallery's (.mg-arrow in case-study.css) */
 .lb-inner .lb-arrow {
   flex: none;
-}
-
-.lb-inner .lb-arrow img {
-  width: 60%;
-  height: auto;
-  border: 0;
-  background: none;
-  border-radius: 0;
 }
 
 .lb-count {

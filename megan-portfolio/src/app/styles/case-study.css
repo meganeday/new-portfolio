@@ -302,6 +302,7 @@
   /* a plain reset rather than all: unset, which would also wipe the pin look */
   appearance: none;
   padding: 0;
+  position: relative; /* holds the chevrons' .pin-icon */
   display: grid;
   place-items: center;
   box-sizing: border-box;
@@ -315,9 +316,31 @@
   transition: translate 0.2s, box-shadow 0.2s;
 }
 
-.mg-arrow img {
-  width: 60%;
-  height: auto;
+/* a double chevron (») drawn as two bordered corners turned 45°, so it gets
+   the pin's plum fill and gold outline like the other pin icons. Each
+   corner's ink runs from about 2.1px left to 6.4px right of its box's
+   center, so the two offsets put the pair's middle exactly on the pin's
+   center. The previous arrow mirrors it. */
+.mg-arrow .pin-icon::before,
+.mg-arrow .pin-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 53%;
+  width: 9px;
+  height: 9px;
+  border-top: 3px solid var(--plum);
+  border-right: 3px solid var(--plum);
+  border-radius: 2px;
+  transform: translate(-9.6px, -50%) rotate(45deg);
+}
+
+.mg-arrow .pin-icon::after {
+  transform: translate(-3.6px, -50%) rotate(45deg);
+}
+
+.mg-arrow.prev .pin-icon {
+  scale: -1 1;
 }
 
 .mg-arrow.next {

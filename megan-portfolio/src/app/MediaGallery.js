@@ -154,7 +154,7 @@ export default function MediaGallery({ media }) {
       <div className="mg-stage">
         {total > 1 ? (
           <button type="button" className="mg-arrow prev" onClick={() => step(-1)} aria-label="Previous file">
-            <Image src="/icons/left.png" alt="" width={60} height={60} />
+            <span className="pin-icon" />
           </button>
         ) : null}
 
@@ -171,7 +171,7 @@ export default function MediaGallery({ media }) {
 
         {total > 1 ? (
           <button type="button" className="mg-arrow next" onClick={() => step(1)} aria-label="Next file">
-            <Image src="/icons/right.png" alt="" width={60} height={60} />
+            <span className="pin-icon" />
           </button>
         ) : null}
       </div>
@@ -212,13 +212,13 @@ export default function MediaGallery({ media }) {
             <div className={"lb-stage" + (total > 1 ? " has-arrows" : "")}>
               {total > 1 ? (
                 <button type="button" className="mg-arrow lb-arrow prev" onClick={() => step(-1)} aria-label="Previous">
-                  <Image src="/icons/left.png" alt="" width={60} height={60} />
+                  <span className="pin-icon" />
                 </button>
               ) : null}
               <Full m={current} />
               {total > 1 ? (
                 <button type="button" className="mg-arrow lb-arrow next" onClick={() => step(1)} aria-label="Next">
-                  <Image src="/icons/right.png" alt="" width={60} height={60} />
+                  <span className="pin-icon" />
                 </button>
               ) : null}
             </div>

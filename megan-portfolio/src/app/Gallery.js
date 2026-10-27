@@ -72,7 +72,7 @@ export default function Gallery({ photos }) {
           <div className="lb-inner">
             <div className="lb-stage has-arrows">
               <button type="button" className="mg-arrow lb-arrow prev" onClick={() => step(-1)} aria-label="Previous">
-                <Image src="/icons/left.png" alt="" width={60} height={60} />
+                <span className="pin-icon" />
               </button>
               <Image
                 src={current.src}
@@ -83,7 +83,7 @@ export default function Gallery({ photos }) {
                 style={{ width: "auto", height: "auto", maxWidth: "calc(90vw - var(--lb-room))", maxHeight: "75vh" }}
               />
               <button type="button" className="mg-arrow lb-arrow next" onClick={() => step(1)} aria-label="Next">
-                <Image src="/icons/right.png" alt="" width={60} height={60} />
+                <span className="pin-icon" />
               </button>
             </div>
             {current.caption ? <p className="lb-cap">{current.caption}</p> : null}
