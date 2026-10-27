@@ -33,14 +33,14 @@ function Preview({ m, sizes, featured }) {
     return (
       <>
         <video src={`${m.src}#t=0.1`} poster={m.poster || undefined} muted playsInline preload="metadata" />
-        <span className="play-badge" />
+        <span className="play-badge"><span className="pin-icon" /></span>
       </>
     );
   }
   if (m.type === "embed") {
     return (
       <span className="mg-embed-tile">
-        <span className="play-badge" />
+        <span className="play-badge"><span className="pin-icon" /></span>
       </span>
     );
   }
@@ -206,18 +206,18 @@ export default function MediaGallery({ media }) {
           if (e.target === e.currentTarget) close();
         }}
       >
-        <button type="button" className="lb-close" onClick={close} aria-label="Close"></button>
+        <button type="button" className="lb-close" onClick={close} aria-label="Close"><span className="pin-icon" /></button>
         {viewing ? (
           <div className="lb-inner">
             <div className={"lb-stage" + (total > 1 ? " has-arrows" : "")}>
               {total > 1 ? (
-                <button type="button" className="btn lb-arrow prev" onClick={() => step(-1)} aria-label="Previous">
+                <button type="button" className="mg-arrow lb-arrow prev" onClick={() => step(-1)} aria-label="Previous">
                   <Image src="/icons/left.png" alt="" width={60} height={60} />
                 </button>
               ) : null}
               <Full m={current} />
               {total > 1 ? (
-                <button type="button" className="btn alt lb-arrow next" onClick={() => step(1)} aria-label="Next">
+                <button type="button" className="mg-arrow lb-arrow next" onClick={() => step(1)} aria-label="Next">
                   <Image src="/icons/right.png" alt="" width={60} height={60} />
                 </button>
               ) : null}

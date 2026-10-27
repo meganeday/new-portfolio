@@ -64,7 +64,7 @@ export default function CaseStudy({ p }) {
             <h3>{p.title}</h3>
             {p.summary ? <span className="case-teaser">{p.summary}</span> : null}
           </span>
-          <span className="case-toggle" aria-hidden="true"></span>
+          <span className="case-toggle" aria-hidden="true"><span className="pin-icon" /></span>
         </>
       }
     >

@@ -47,9 +47,11 @@ export default function Nav() {
         aria-controls="site-menu"
         onClick={() => setOpen(!open)}
       >
-        <span></span>
-        <span></span>
-        <span></span>
+        <span className="pin-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
       </button>
 
       <div className={"nav-scrim" + (open ? " open" : "")} onClick={close} aria-hidden="true"></div>

@@ -137,7 +137,9 @@
 
 /* round X pinned to the screen's top right corner, drawn with two bars */
 .lb-close {
-  all: unset;
+  /* a plain reset rather than all: unset, which would also wipe the pin look */
+  appearance: none;
+  padding: 0;
   position: fixed;
   top: max(1rem, env(safe-area-inset-top));
   right: max(1rem, env(safe-area-inset-right));
@@ -145,17 +147,14 @@
   box-sizing: border-box;
   width: 3rem;
   height: 3rem;
-  /* a round sticker, like .btn in components.css */
-  border: 3px solid #fff;
+  /* an enamel pin; the rim and shine come from components.css */
   border-radius: 50%;
-  background: var(--butter);
-  box-shadow: var(--shadow-soft-sm);
   cursor: pointer;
   transition: translate 0.2s, box-shadow 0.2s;
 }
 
-.lb-close::before,
-.lb-close::after {
+.lb-close .pin-icon::before,
+.lb-close .pin-icon::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -168,18 +167,18 @@
   transform: rotate(45deg);
 }
 
-.lb-close::after {
+.lb-close .pin-icon::after {
   transform: rotate(-45deg);
 }
 
 .lb-close:hover {
   translate: 0 -2px;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--pin-shadow-lift);
 }
 
 .lb-close:active {
   translate: 0 1px;
-  box-shadow: 0 1px 2px rgba(59, 29, 46, 0.2);
+  box-shadow: var(--pin-shadow-press);
 }
 
 .lb-close:focus-visible {
@@ -202,16 +201,15 @@
   --lb-room: 9rem;
 }
 
-/* .lb-inner prefix beats the bordered .lb-inner img rule in gallery.css */
+/* the arrows are the same round enamel pins as the case study gallery's
+   (.mg-arrow in case-study.css); the .lb-inner prefix beats the bordered
+   .lb-inner img rule above */
 .lb-inner .lb-arrow {
   flex: none;
-  display: inline-grid;
-  place-items: center;
-  padding: .3rem .7rem;
 }
 
 .lb-inner .lb-arrow img {
-  width: 1.9rem;
+  width: 60%;
   height: auto;
   border: 0;
   background: none;
@@ -233,7 +231,8 @@
     position: absolute;
     top: 50%;
     z-index: 1;
-    transform: translateY(-50%); /* .btn's hover lift uses translate, so the two add up */
+    margin-top: 0; /* .mg-arrow's phone rule centers with a margin; this uses transform */
+    transform: translateY(-50%); /* the hover lift uses translate, so the two add up */
   }
 
   .lb-inner .lb-arrow.prev {

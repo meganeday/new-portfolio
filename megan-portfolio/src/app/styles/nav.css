@@ -12,26 +12,32 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  background: var(--moss);
-  /* a round sticker, like .btn in components.css */
-  border: 3px solid #fff;
+  /* an enamel pin; the rim and shine come from components.css */
+  --pin-fill: var(--moss);
   border-radius: 50%;
-  box-shadow: var(--shadow-soft-sm);
   cursor: pointer;
   transition: translate 0.2s, box-shadow 0.2s;
 }
 
 .burger:hover {
   translate: 0 -2px;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--pin-shadow-lift);
 }
 
 .burger:active {
   translate: 0 1px;
-  box-shadow: 0 1px 2px rgba(59, 29, 46, 0.2);
+  box-shadow: var(--pin-shadow-press);
 }
 
-.burger span {
+.burger .pin-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.burger .pin-icon span {
   display: block;
   width: 20px;
   height: 3px;
@@ -41,13 +47,13 @@
 }
 
 /* the three bars fold into an X */
-.burger.open span:nth-child(1) {
+.burger.open .pin-icon span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
-.burger.open span:nth-child(2) {
+.burger.open .pin-icon span:nth-child(2) {
   opacity: 0;
 }
-.burger.open span:nth-child(3) {
+.burger.open .pin-icon span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
 
@@ -148,7 +154,7 @@ body.nav-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .burger span,
+  .burger .pin-icon span,
   .nav-scrim,
   .nav-menu,
   .nav-menu.open {

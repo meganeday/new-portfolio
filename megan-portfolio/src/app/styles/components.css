@@ -11,6 +11,46 @@
      edge plus a wide, faint one for lift */
   --shadow-soft: 2px 4px 8px rgba(59, 29, 46, 0.16), 6px 14px 30px rgba(59, 29, 46, 0.26);
   --shadow-soft-sm: 1px 2px 4px rgba(59, 29, 46, 0.14), 3px 8px 18px rgba(59, 29, 46, 0.22);
+
+  /* enamel pins (the round controls): a polished gold rim, a glossy shine
+     on the enamel, and a shadow with a dark metal edge underneath */
+  --pin-metal: linear-gradient(135deg, #fff1b8, #d4a63f 30%, #8a6420 55%, #f0cf73 75%, #a77a26);
+  --pin-gloss: radial-gradient(120% 80% at 30% 15%, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0) 45%);
+  --pin-line: #b8892f; /* the metal outline around each icon */
+  --pin-depth: inset 0 0 0 1px rgba(122, 90, 28, 0.55), inset 0 -3px 5px rgba(59, 29, 46, 0.18);
+  --pin-shadow: var(--pin-depth), 0 1px 0 #7a5a1c, 0 3px 6px rgba(59, 29, 46, 0.28), 0 8px 16px rgba(59, 29, 46, 0.16);
+  --pin-shadow-lift: var(--pin-depth), 0 1px 0 #7a5a1c, 0 6px 10px rgba(59, 29, 46, 0.28), 0 12px 24px rgba(59, 29, 46, 0.18);
+  --pin-shadow-press: var(--pin-depth), 0 1px 0 #7a5a1c, 0 1px 2px rgba(59, 29, 46, 0.3);
+}
+
+/* the round controls are enamel pins; each sets its enamel color with
+   --pin-fill, and its own hover and press use the lift and press shadows */
+.burger,
+.lb-close,
+.mg-arrow,
+.case-toggle,
+.play-badge {
+  --pin-fill: var(--butter);
+  border: 3px solid transparent;
+  background:
+    var(--pin-gloss) padding-box,
+    linear-gradient(var(--pin-fill), var(--pin-fill)) padding-box,
+    var(--pin-metal) border-box;
+  box-shadow: var(--pin-shadow);
+}
+
+/* each pin's icon (bars, plus, X, play triangle) is drawn inside .pin-icon,
+   and a few small, centered drop shadows stack into one soft metal line
+   around the whole shape, rounded like the bars' ends. Outlining each bar
+   separately left lines crossing where the bars overlap. */
+.pin-icon {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  filter:
+    drop-shadow(0 0 0.6px var(--pin-line))
+    drop-shadow(0 0 0.6px var(--pin-line))
+    drop-shadow(0 0 0.6px var(--pin-line));
 }
 
 /* Buttons are die-cut stickers: a white edge and a slight tilt, lifting
@@ -221,7 +261,7 @@ footer {
 .foot-link {
   display: block;
   width: fit-content;
-  margin: 0.5rem auto 0;
+  margin: 0.5rem auto;
   color: var(--butter);
   font: 700 1rem var(--sans);
   text-underline-offset: 4px;

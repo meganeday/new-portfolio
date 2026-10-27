@@ -136,8 +136,8 @@ export default async function SkillPage({ params }) {
 
       <div className="awning t" aria-hidden="true"></div>
       <footer>
-        made with love in Champaign, Illinois
         <Link className="foot-link" href="/#touch">get in touch</Link>
+        made with love in Champaign, Illinois
       </footer>
     </>
   );
