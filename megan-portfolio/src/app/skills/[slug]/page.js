@@ -107,7 +107,7 @@ export default async function SkillPage({ params }) {
                       </ul>
                     ) : null}
                     {p.link ? (
-                      <a className="btn" href={p.link} target="_blank" rel="noopener noreferrer">
+                      <a className="btn tag" href={p.link} target="_blank" rel="noopener noreferrer">
                         {p.linkLabel}
                       </a>
                     ) : null}
@@ -122,11 +122,11 @@ export default async function SkillPage({ params }) {
       <section>
         <div className="wrap">
           <div className="btns btns__skills">
-            <Link className="btn btn-arrow" href={`/skills/${prev.slug}`} aria-label={`Previous card: ${prev.n}`}>
+            <Link className="btn tag btn-arrow" href={`/skills/${prev.slug}`} aria-label={`Previous card: ${prev.n}`}>
               <Image src="/icons/left.png" alt="" width={60} height={60} />
               {prev.n}
             </Link>
-            <Link className="btn alt btn-arrow" href={`/skills/${next.slug}`} aria-label={`Next card: ${next.n}`}>
+            <Link className="btn tag alt btn-arrow" href={`/skills/${next.slug}`} aria-label={`Next card: ${next.n}`}>
               {next.n}
               <Image src="/icons/right.png" alt="" width={60} height={60} />
             </Link>

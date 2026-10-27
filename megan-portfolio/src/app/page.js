@@ -28,7 +28,7 @@ export default function Home() {
             <h1>Megan Hubbert</h1>
             <span className="tag script">I'm sort of a jack of all trades</span>
             <p>
-              I’m a storyteller at heart, and I love to create digital ecosystems across formats from newsletters and articles to photography, video, web, and socials. My passion lies in helping people share their work with the world in ways that are clear, compelling, and impactful.
+              I’m a storyteller at heart, and I love to create digital ecosystems across formats from newsletters and articles to photography, video, web, and socials.
             </p>
             <p>
               While I work in communications now, I spent several years as a Frontend Web Developer, and I still love to code and build things whenever I can (I built this site myself!). I’m a multi-disciplinary creative who thrives on variety, collaboration, and learning new things.

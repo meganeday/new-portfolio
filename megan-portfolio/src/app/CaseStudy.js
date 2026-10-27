@@ -74,7 +74,7 @@ export default function CaseStudy({ p }) {
           <div className="case-text">
             {(p.details || []).map((d, i) => <Detail d={d} key={i} />)}
             {p.link ? (
-              <a className="btn" href={p.link} target="_blank" rel="noopener noreferrer">
+              <a className="btn tag" href={p.link} target="_blank" rel="noopener noreferrer">
                 {p.linkLabel}
               </a>
             ) : null}

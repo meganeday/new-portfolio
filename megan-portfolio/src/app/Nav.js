@@ -76,7 +76,7 @@ export default function Nav() {
             </li>
           ))}
         </ul>
-        <a className="btn nav-resume" href="/Hubbert_Megan_Resume.pdf" target="_blank" rel="noopener" onClick={close}>
+        <a className="btn tag nav-resume" href="/Hubbert_Megan_Resume.pdf" target="_blank" rel="noopener" onClick={close}>
           View my resume
         </a>
       </nav>

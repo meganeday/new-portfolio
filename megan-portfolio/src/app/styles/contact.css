@@ -34,9 +34,6 @@
 
 .ticket .btn {
   --btn-bg: var(--wine);
-  /* the default white glow is too bright on a dark button */
-  --btn-glow: rgba(255, 255, 255, 0.22);
-  --btn-shade: rgba(30, 10, 20, 0.35);
   color: var(--white);
   text-transform: none;
   /* a little smaller than the default so all three fit the ticket comfortably */
