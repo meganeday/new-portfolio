@@ -13,15 +13,19 @@ export function generateStaticParams() {
   return skills.map((s) => ({ slug: s.slug }));
 }
  
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }, parent) {
   const { slug } = await params;
   const skill = skills.find((s) => s.slug === slug);
   if (!skill) return {};
+  // setting openGraph here replaces the layout's, image included, so pass
+  // along the site's preview image (src/app/opengraph-image.png)
+  const parentImages = (await parent).openGraph?.images || [];
   return {
     title: `${skill.n} | Megan Hubbert`,
     description: skill.t,
     // without this, link previews would show the homepage's title instead
     openGraph: {
+      images: parentImages,
       title: `${skill.n} | Megan Hubbert`,
       description: skill.t,
       url: `/skills/${skill.slug}`,
