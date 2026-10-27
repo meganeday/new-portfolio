@@ -55,6 +55,20 @@
   }
 }
 
+/* a small handwritten note just above the card, tilting and lifting with it */
+.card-hint {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 .5rem 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-align: right;
+  text-transform: none; /* .skill-hero capitalizes its text */
+  color: var(--butter);
+  pointer-events: none;
+}
 .skill-card .flip {
   all: unset;
   display: block;
@@ -231,7 +245,7 @@
 }
 
 .proj-meta {
-  margin: 0;
+  margin: 0 0 .5rem;
   font: 700 1.2rem var(--sans);
 }
 

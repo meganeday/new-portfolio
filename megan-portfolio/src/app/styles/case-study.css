@@ -484,12 +484,12 @@
   aspect-ratio: 16 / 9;
 }
 
-/* embeds side by side (mediaLayout: "grid"). 326px is the narrowest an
-   Instagram embed is meant to be shown */
+/* embeds side by side (mediaLayout: "grid"): 220px columns fit four across
+   on desktop, then drop to three, two, and one as the screen narrows */
 .embed-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 326px), 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 1.25rem;
   align-items: start;
   margin-top: 2.5rem;
 }

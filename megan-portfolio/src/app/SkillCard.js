@@ -10,6 +10,8 @@ export default function SkillCard({ skill }) {
 
   return (
     <div className={"skill-card" + (flipped ? " flipped" : "")}>
+      {/* the button's label already tells screen readers what it does */}
+      <span className="card-hint script" aria-hidden="true">click me</span>
       <button
         className="flip"
         type="button"
