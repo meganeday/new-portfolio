@@ -15,9 +15,21 @@ const hand = Homemade_Apple({
   variable: "--font-hand"
 });
 export const metadata = {
+  // the live site's address, so link previews get full image URLs
+  metadataBase: new URL("https://meghubbert.vercel.app"),
   title: "Megan Hubbert | Communications and Digital Content",
   description:
     "Writing, newsletters, social content, campaigns, photography, video, web content, and graphic design.",
+  // the text shown with link previews; the image comes from opengraph-image.png
+  // in this folder once it's added
+  openGraph: {
+    title: "Megan Hubbert | Communications and Digital Content",
+    description:
+      "Writing, newsletters, social content, campaigns, photography, video, web content, and graphic design.",
+    url: "/",
+    siteName: "Megan Hubbert",
+    type: "website",
+  },
 };
  
 export const viewport = {

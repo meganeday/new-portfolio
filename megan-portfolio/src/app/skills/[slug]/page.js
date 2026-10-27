@@ -20,6 +20,14 @@ export async function generateMetadata({ params }) {
   return {
     title: `${skill.n} | Megan Hubbert`,
     description: skill.t,
+    // without this, link previews would show the homepage's title instead
+    openGraph: {
+      title: `${skill.n} | Megan Hubbert`,
+      description: skill.t,
+      url: `/skills/${skill.slug}`,
+      siteName: "Megan Hubbert",
+      type: "website",
+    },
   };
 }
  
